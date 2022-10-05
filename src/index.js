@@ -1,15 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {Provider} from 'react-redux';
-import { configureStore,combineReducers } from '@reduxjs/toolkit';
-import nameReducer from './showHideReducer';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-const rootreducer = combineReducers({showHideReducer:nameReducer})
-const store= configureStore({reducer : rootreducer});
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import nameReducer from "./showHideReducer";
+import nameChangeReducer from "./nameChangeReducer";
+const root = ReactDOM.createRoot(document.getElementById("root"));
+const rootreducer = combineReducers(
+  { showHideReducer: nameReducer ,
+   nameChangeReducer }
+);
+const store = configureStore({ reducer: rootreducer });
 
 root.render(
   <Provider store={store}>
